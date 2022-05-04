@@ -4,7 +4,7 @@
  */
 
 
-import {ButtonGroup, IconButton} from "@chakra-ui/react";
+import {ButtonGroup, IconButton, SimpleGrid} from "@chakra-ui/react";
 import {FaDiscord, FaGithub, FaInstagram, FaTwitter, FaYoutube} from "react-icons/fa";
 import * as React from "react";
 
@@ -13,18 +13,6 @@ export default function SocialIcons() {
         <ButtonGroup variant="ghost">
             <IconButton as="a" href="https://github.com/MCTzOCK" aria-label="GitHub"
                         icon={<FaGithub fontSize="1.25rem"/>}/>
-            <IconButton
-                as="a"
-                href="https://twitter.com/OfficialMCTzOCK"
-                aria-label="Twitter"
-                icon={<FaTwitter fontSize="1.25rem"/>}
-            />
-            <IconButton
-                as="a"
-                href="https://www.youtube.com/channel/UCYpiMr7urCu8V8Lv4-6ikyw"
-                aria-label="YouTube"
-                icon={<FaYoutube fontSize="1.25rem"/>}
-            />
             <IconButton as="a" aria-label={"Instagram"} href={"https://instagram.com/ben.sbrt"} icon={<FaInstagram fontSize={"1.25rem"} />} />
             <IconButton
                 as="a"

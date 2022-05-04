@@ -44,6 +44,7 @@ export default function About() {
                             Ben Siebert
                         </Heading>
                         <Text color={"gray.400"}>Software Developer</Text>
+                        <Text color={"gray.400"}>Student</Text>
                         <Box d={"flex"} flexDir={"row"} justifyContent={"center"} mt={"0.6rem"}>
                             <SocialIcons/>
                         </Box>
