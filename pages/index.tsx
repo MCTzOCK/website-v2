@@ -21,6 +21,7 @@ const Home = () => {
                 py="4"
                 minH={"100vh"}
                 w={"100%"}
+                paddingInline={".6rem"}
             >
                 <NextImage
                     src="/assets/brand/cartoon.jpg"
