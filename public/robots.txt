@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://ben-siebert.de
+
+# Sitemaps
+Sitemap: https://ben-siebert.de/sitemap.xml
