@@ -3,10 +3,15 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import MajorProjectHero from "../../components/MajorProjectHero";
+import {NextSeo} from "next-seo";
 
 export default function InCode() {
     return (
-        <MajorProjectHero
+        <>
+            <NextSeo
+                title="SenOS | Ben Siebert - Software Engineer & Student"
+            />
+            <MajorProjectHero
             slogan={{
                 start: "Make the",
                 middle: "PC yours again",
@@ -19,5 +24,7 @@ export default function InCode() {
             }}
             image={"senos-frame.png"}
         />
+        </>
+
     )
 }

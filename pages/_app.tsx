@@ -17,7 +17,6 @@ function App({Component, pageProps}: AppProps) {
     return (
         <>
             <DefaultSeo
-                title={"Ben Siebert - Software Engineer & Student"}
                 description={"Ben Siebert is a software engineer and former student at the Gymnasium Holthausen in Hattingen, Germany. He is passionate about web development and is currently working on his own projects."}
                 openGraph={{
                     type: 'website',

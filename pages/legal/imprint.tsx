@@ -5,10 +5,15 @@
 
 import React from 'react';
 import {Box, Heading, Link, Text} from "@chakra-ui/react";
+import {NextSeo} from "next-seo";
 
 export default function Imprint() {
     return (
-        <Box minH={"100vh"} minW={"100%"}>
+        <>
+            <NextSeo
+                title="Imprint | Ben Siebert - Software Engineer & Student"
+            />
+            <Box minH={"100vh"} minW={"100%"}>
             <Box d={"flex"} justifyContent={"center"} alignItems={"center"} h={"100vh"}>
                 <Box>
                     <Heading>Impressum</Heading>
@@ -38,5 +43,7 @@ export default function Imprint() {
                 </Box>
             </Box>
         </Box>
+        </>
+
     )
 }

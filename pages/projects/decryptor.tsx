@@ -3,10 +3,15 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import MajorProjectHero from "../../components/MajorProjectHero";
+import {NextSeo} from "next-seo";
 
 export default function InCode() {
     return (
-        <MajorProjectHero
+        <>
+            <NextSeo
+                title="Home | Ben Siebert - Software Engineer & Student"
+            />
+            <MajorProjectHero
             slogan={{
                 start: "Encrypt and Decrypt",
                 middle: "any text",
@@ -23,5 +28,8 @@ export default function InCode() {
             }}
             image={"decryptor-frame.png"}
         />
+        </>
+
+
     )
 }
