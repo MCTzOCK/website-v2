@@ -6,7 +6,7 @@ import NavigationBar from "../components/NavigationBar";
 
 const theme = extendTheme({
     config: {
-        useSystemColorMode: true,
+        useSystemColorMode: false,
         initialColorMode: "dark"
     }
 });
