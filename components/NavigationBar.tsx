@@ -244,17 +244,6 @@ export default function NavigationBar() {
                             <PopoverX title={"Legal"}>
                                 <LegalSections/>
                             </PopoverX>
-                            <Button
-                                bg={bg}
-                                color="gray.500"
-                                display="inline-flex"
-                                alignItems="center"
-                                fontSize="md"
-                                _hover={{color: cl}}
-                                _focus={{boxShadow: "none"}}
-                            >
-                                Pricing
-                            </Button>
                         </HStack>
                     </Flex>
                     <Flex justify="flex-end" align="center" color="gray.400">
