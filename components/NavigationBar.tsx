@@ -28,7 +28,7 @@ import {useViewportScroll} from "framer-motion";
 
 import {IoIosArrowDown} from "react-icons/io";
 import {AiOutlineMenu} from "react-icons/ai";
-import {FaAddressCard, FaBook, FaTools, FaUserCircle} from "react-icons/fa";
+import {FaAddressCard, FaBook, FaList, FaTools, FaUserCircle} from "react-icons/fa";
 
 export default function NavigationBar() {
     const {toggleColorMode: toggleMode} = useColorMode();
@@ -115,7 +115,7 @@ export default function NavigationBar() {
                 <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/">Homepage</Section>
                 <WorkSections/>
                 <AboutSections/>
-                <LegalSections />
+                <LegalSections/>
             </Content>
         </VStack>
     );
@@ -140,9 +140,16 @@ export default function NavigationBar() {
     function WorkSections() {
         return (
             <>
-                <Section title={"title"} icon={"icon"} href={"href"}>
-                    {"description"}
+                <Section title={"InCode"} icon={""} href={"/projects/incode"}>
+                    Jugend Forscht 2022
                 </Section>
+                <Section title={"SenOS"} icon={""} href={"/projects/senos"}>
+                    Jugend Forscht 2021
+                </Section>
+                <Section title={"Decryptor"} icon={""} href={"/projects/decryptor"}>
+                    Jugend Forscht 2020
+                </Section>
+                <Section title={"All Projects"} icon={<FaList />} href={"/projects/all"} />
             </>
         )
     }
@@ -150,12 +157,8 @@ export default function NavigationBar() {
     function LegalSections() {
         return (
             <>
-                <Section title={"Imprint"} icon={<FaBook/>} href={"/legal/imprint"}>
-                    {"description"}
-                </Section>
-                <Section title={"Privacy Policy"} icon={<FaBook/>} href={"/legal/privacy"}>
-                    {"description"}
-                </Section>
+                <Section title={"Imprint"} icon={<FaBook/>} href={"/legal/imprint"}/>
+                <Section title={"Privacy Policy"} icon={<FaBook/>} href={"/legal/privacy"}/>
             </>
         )
     }
