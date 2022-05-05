@@ -24,6 +24,15 @@ function App({Component, pageProps}: AppProps) {
                     locale: 'en_US',
                     url: 'https://ben-siebert.de/',
                     site_name: 'Ben Siebert - Software Engineer & Student',
+                    images: [
+                        {
+                            url: "https://ben-siebert.de/assets/brand/cartoon.jpg",
+                            width: 512,
+                            height: 512,
+                            alt: "Ben Siebert - Software Engineer & Student",
+                            type: "image/jpg"
+                        }
+                    ]
                 }}
                 twitter={{
                     handle: '@OfficialMCTzOCK',
