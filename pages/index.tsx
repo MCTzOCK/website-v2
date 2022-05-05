@@ -62,7 +62,7 @@ const Home = () => {
                                 Get in touch
                             </Button>
                         </NextLink>
-                        <NextLink href={"/explore"}>
+                        <NextLink href={"/projects/all"}>
                             <Button
                                 colorScheme="orange"
                                 size="lg"
