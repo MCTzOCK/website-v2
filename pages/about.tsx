@@ -52,16 +52,16 @@ export default function About() {
                         <Box d={"flex"} flexDir={"row"} justifyContent={"center"} mt={"0.6rem"}>
                             <SocialIcons/>
                         </Box>
-                        <Text fontSize={"1.5rem"} style={{fontFamily: "'Caveat', cursive"}} color={'green.300'}>"Developing
+                        <Text fontSize={"1.5rem"} style={{fontFamily: "'Caveat', cursive"}} color={'green.300'}>&quot;Developing
                             Software
-                            is like creating Art <br/> but in a way that I understand."</Text>
+                            is like creating Art <br/> but in a way that I understand.&quot;</Text>
                     </Box>
                 </Box>
                 <Box marginInline={"4rem"}>
                     <Heading textAlign={'center'}>About</Heading>
                     <Text textAlign={'left'} fontSize={"1.6rem"}>
                         Hey I&#39;m Ben! I am a student based in Hattingen, Germany.
-                        I am currently {age} years old. I've started programming back in 2015 when I was 8 years old.
+                        I am currently {age} years old. I&#39;ve started programming back in 2015 when I was 8 years old.
                         Since then I&#39;ve learned a lot about computers in general and programming.
                         You can take a look at the <Link href={"/skills"} color={"blue.300"}>Skills</Link> that I&#39;ve
                         learned. I believe in Open Source so much that all projects are open source and you can use them
