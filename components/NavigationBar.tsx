@@ -19,7 +19,6 @@ import {
     PopoverContent,
     PopoverTrigger,
     SimpleGrid,
-    Stack,
     useColorMode,
     useColorModeValue,
     useDisclosure,
@@ -28,13 +27,11 @@ import {
 import {useViewportScroll} from "framer-motion";
 
 import {IoIosArrowDown} from "react-icons/io";
-import {AiFillHome, AiOutlineMenu} from "react-icons/ai";
-import {FaMoon, FaSun} from "react-icons/fa";
+import {AiOutlineMenu} from "react-icons/ai";
+import {FaAddressCard, FaBook, FaTools, FaUserCircle} from "react-icons/fa";
 
 export default function NavigationBar() {
     const {toggleColorMode: toggleMode} = useColorMode();
-    const text = useColorModeValue("dark", "light");
-    const SwitchIcon = useColorModeValue(FaMoon, FaSun);
     const bg = useColorModeValue("white", "gray.800");
     const ref = React.useRef();
     const [y, setY] = React.useState(0);
@@ -76,7 +73,7 @@ export default function NavigationBar() {
                     strokeLinejoin="round"
                     strokeWidth="2"
                 >
-                    <path d={props.icon}/>
+                    {props.icon}
                 </Icon>
                 <Box ml={4}>
                     <chakra.p fontSize="sm" fontWeight="700" color={tcl}>
@@ -87,75 +84,6 @@ export default function NavigationBar() {
                     </chakra.p>
                 </Box>
             </Link>
-        );
-    };
-
-    const sections = [
-        {
-            title: "Analytics",
-            icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
-            description:
-                "Get a better understanding of where your traffic is coming from.",
-            href: "/test"
-        }
-    ];
-
-    const Features = (props: any) => {
-        const hbg = useColorModeValue("gray.50", "brand.400");
-        const hbgh = useColorModeValue("gray.100", "brand.500");
-        const tcl = useColorModeValue("gray.900", "gray.50");
-        return (
-            <React.Fragment>
-                <SimpleGrid
-                    columns={props.h ? {base: 1, md: 3, lg: 5} : 1}
-                    pos="relative"
-                    gap={{base: 6, sm: 8}}
-                    px={5}
-                    py={6}
-                    p={{sm: 8}}
-                >
-                    {sections.map(({title, icon, description, href}, sid) => (
-                        <Section title={title} icon={icon} key={sid} href={href}>
-                            {description}
-                        </Section>
-                    ))}
-                </SimpleGrid>
-                <Box px={{base: 5, sm: 8}} py={5} bg={hbg} display={{sm: "flex"}}>
-                    <Stack direction={{base: "row"}} spacing={{base: 6, sm: 10}}>
-                        <Box display="flow-root">
-                            <Link
-                                m={-3}
-                                p={3}
-                                display="flex"
-                                alignItems="center"
-                                rounded="md"
-                                fontSize="md"
-                                color={tcl}
-                                _hover={{bg: hbgh}}
-                            >
-                                <Icon
-                                    flexShrink={0}
-                                    h={6}
-                                    w={6}
-                                    color="gray.400"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    aria-hidden="true"
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth="2"
-                                >
-                                    <path
-                                        d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/>
-                                    <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                                </Icon>
-                                <chakra.span ml={3}>All</chakra.span>
-                            </Link>
-                        </Box>
-                    </Stack>
-                </Box>
-            </React.Fragment>
         );
     };
 
@@ -175,18 +103,108 @@ export default function NavigationBar() {
             spacing={3}
             rounded="sm"
             shadow="sm"
+            minH={"100vh"}
+            minW={"100%"}
         >
             <CloseButton
                 aria-label="Close menu"
                 justifySelf="self-start"
                 onClick={mobileNav.onClose}
             />
-            <Button w="full" variant="ghost" leftIcon={<AiFillHome/>}>
-                Dashboard
-            </Button>
-            <Features/>
+            <Content>
+                <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/">Homepage</Section>
+                <WorkSections/>
+                <AboutSections/>
+                <LegalSections />
+            </Content>
         </VStack>
     );
+
+    function AboutSections() {
+        return (
+            <>
+                <Section title={"About"}
+                         icon={<FaAddressCard/>}
+                         href={"/about"}>
+                    About my person and my history.
+                </Section>
+                <Section title={"Skills"}
+                         icon={<FaTools/>}
+                         href={"/skills"}>
+                    My skills and technologies.
+                </Section>
+            </>
+        )
+    }
+
+    function WorkSections() {
+        return (
+            <>
+                <Section title={"title"} icon={"icon"} href={"href"}>
+                    {"description"}
+                </Section>
+            </>
+        )
+    }
+
+    function LegalSections() {
+        return (
+            <>
+                <Section title={"Imprint"} icon={<FaBook/>} href={"/legal/imprint"}>
+                    {"description"}
+                </Section>
+                <Section title={"Privacy Policy"} icon={<FaBook/>} href={"/legal/privacy"}>
+                    {"description"}
+                </Section>
+            </>
+        )
+    }
+
+    function Content(props: any) {
+        return (<React.Fragment>
+            <SimpleGrid
+                columns={1}
+                pos="relative"
+                gap={{base: 6, sm: 8}}
+                px={5}
+                py={6}
+                p={{sm: 8}}
+            >
+                {props.children}
+            </SimpleGrid>
+        </React.Fragment>)
+    }
+
+    function PopoverX(props: any) {
+        return (
+            <Popover>
+                {/* @ts-ignore */}
+                <PopoverTrigger>
+                    <Button
+                        bg={bg}
+                        color="gray.500"
+                        display="inline-flex"
+                        alignItems="center"
+                        fontSize="md"
+                        _hover={{color: cl}}
+                        _focus={{boxShadow: "none"}}
+                        rightIcon={<IoIosArrowDown/>}
+                    >
+                        {props.title}
+                    </Button>
+                </PopoverTrigger>
+                <PopoverContent
+                    w="100vw"
+                    maxW="md"
+                    _focus={{boxShadow: "md"}}
+                >
+                    <Content>
+                        {props.children}
+                    </Content>
+                </PopoverContent>
+            </Popover>
+        )
+    }
 
     return (
         <chakra.header
@@ -217,43 +235,15 @@ export default function NavigationBar() {
                     </Flex>
                     <Flex>
                         <HStack spacing="5" display={{base: "none", md: "flex"}}>
-                            <Popover>
-                                {/* @ts-ignore */}
-                                <PopoverTrigger>
-                                    <Button
-                                        bg={bg}
-                                        color="gray.500"
-                                        display="inline-flex"
-                                        alignItems="center"
-                                        fontSize="md"
-                                        _hover={{color: cl}}
-                                        _focus={{boxShadow: "none"}}
-                                        rightIcon={<IoIosArrowDown/>}
-                                    >
-                                        Work
-                                    </Button>
-                                </PopoverTrigger>
-                                <PopoverContent
-                                    w="100vw"
-                                    maxW="md"
-                                    _focus={{boxShadow: "md"}}
-                                >
-                                    <Features/>
-                                </PopoverContent>
-                            </Popover>
-                            <Button
-                                bg={bg}
-                                color="gray.500"
-                                display="inline-flex"
-                                alignItems="center"
-                                fontSize="md"
-                                _hover={{color: cl}}
-                                _focus={{boxShadow: "none"}}
-                                as={"a"}
-                                href="/about"
-                            >
-                                About
-                            </Button>
+                            <PopoverX title={"Work"}>
+                                <WorkSections/>
+                            </PopoverX>
+                            <PopoverX title={"Me"}>
+                                <AboutSections/>
+                            </PopoverX>
+                            <PopoverX title={"Legal"}>
+                                <LegalSections/>
+                            </PopoverX>
                             <Button
                                 bg={bg}
                                 color="gray.500"
