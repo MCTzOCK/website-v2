@@ -5,7 +5,6 @@
 
 import {Box, Container, Heading, SimpleGrid, Stack, Text, useColorModeValue} from '@chakra-ui/react'
 import * as React from 'react'
-import {FaHeart} from 'react-icons/fa'
 import SocialIcons from "./SocialIcons";
 import UkraineFlag from "./UkraineFlag";
 
@@ -20,14 +19,9 @@ export default function Footer() {
                 </Stack>
                 <Text fontSize="sm" color="subtle">
                     &copy; {new Date().getFullYear()} Ben Siebert. All rights reserved.
-                    <Box d={"flex"} flexDir={"column"} gap={"1.2rem"} mt={"1rem"}>
-                        <Text d={"flex"} gap={"0.3rem"} justifyContent={"center"} alignItems={"center"}>Made with <FaHeart
-                            color={"red"}/> by me.
-                        </Text>
-                        <Text d={"flex"} gap={"0.3rem"} justifyContent={"center"} alignItems={"center"}>
-                            <UkraineFlag width={18} /> #PrayForUkraine
-                        </Text>
-                    </Box>
+                    <Text as="span" align={'left'}><Text d={"flex"} gap={".2rem"} as={"span"}><UkraineFlag width={18} /> #PrayForUkraine</Text></Text>
+                </Text>
+                <Text fontSize={"sm"} color={"subtle"}>
 
                 </Text>
             </Stack>

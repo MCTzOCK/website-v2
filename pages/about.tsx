@@ -33,9 +33,13 @@ export default function About() {
             py="4"
             minH={"100vh"}
             w={"100%"}
+            d={"flex"}
+            flexDir={"column"}
+            alignItems={"center"}
+            justifyContent={"center"}
         >
-            <SimpleGrid minChildWidth={"220px"} spacing={0}>
-                <Box d={"flex"} flexDir={"column"}>
+            <SimpleGrid minChildWidth={"240px"} spacing={0} alignItems={"center"} justifyContent={"center"}>
+                <Box d={"flex"} flexDir={"column"} justifyContent={"center"} alignItems={"center"}>
                     <Box textAlign={"center"} d={"flex"} flexDir={"column"} width={"fit-content"} marginInline={"4rem"}
                          marginBottom={"3rem"}>
                         <NextImage src={"/assets/brand/cartoon.jpg"} width={350} height={350}
