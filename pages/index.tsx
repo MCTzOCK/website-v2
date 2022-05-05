@@ -1,10 +1,4 @@
-import {
-  Box,
-  Button, ButtonGroup,
-  Heading,
-  Text,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import {Box, Button, ButtonGroup, Heading, Text, useColorModeValue,} from "@chakra-ui/react";
 import NextImage from "next/image";
 import NextLink from 'next/link';
 
