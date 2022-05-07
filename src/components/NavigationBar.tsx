@@ -113,8 +113,9 @@ export default function NavigationBar() {
             />
             <Content>
                 <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/">Homepage</Section>
-                <WorkSections/>
+                <Section title={"Blog"} icon={<FaBook/>} href="/blog" />
                 <AboutSections/>
+                <WorkSections/>
                 <LegalSections/>
             </Content>
         </VStack>
@@ -238,11 +239,24 @@ export default function NavigationBar() {
                     </Flex>
                     <Flex>
                         <HStack spacing="5" display={{base: "none", md: "flex"}}>
-                            <PopoverX title={"Work"}>
-                                <WorkSections/>
-                            </PopoverX>
                             <PopoverX title={"Me"}>
                                 <AboutSections/>
+                            </PopoverX>
+                            <Button
+                                bg={bg}
+                                color="gray.500"
+                                display="inline-flex"
+                                alignItems="center"
+                                fontSize="md"
+                                _hover={{color: cl}}
+                                _focus={{boxShadow: "none"}}
+                                as={"a"}
+                                href={"/blog"}
+                            >
+                                Blog
+                            </Button>
+                            <PopoverX title={"Work"}>
+                                <WorkSections/>
                             </PopoverX>
                             <PopoverX title={"Legal"}>
                                 <LegalSections/>
