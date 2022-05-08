@@ -73,7 +73,7 @@ const BlogPost = ({
           {props.children}
         </Heading>
       ),
-      
+
       // @ts-ignore
       a: CustomLink,
       // @ts-ignore
@@ -85,8 +85,8 @@ const BlogPost = ({
       // @ts-ignore
       inlineCode: InlineCode,
       // @ts-ignore
-      code: CodeBlock
-    }
+      code: CodeBlock,
+    },
   });
 
   const title = frontMatter.title;
@@ -95,13 +95,38 @@ const BlogPost = ({
 
   return (
     <>
+      <NextSeo
+        title='Ben Siebert - Blog'
+        description={
+          frontMatter.summary
+        }
+        openGraph={{
+          type: 'website',
+          locale: 'en_US',
+          url: 'https://ben-siebert.de/blog/' + frontMatter.slug,
+          site_name: frontMatter.title  + ' | Ben Siebert - Blog',
+          images: [
+            {
+              url: 'https://ben-siebert.de/assets/brand/cartoon.jpg',
+              width: 512,
+              height: 512,
+              alt: 'Ben Siebert - Blog',
+              type: 'image/jpg',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@OfficialMCTzOCK',
+          cardType: 'summary_large_image',
+        }}
+      />
       <MDXProvider>
         <Box
           as="section"
           px={{ md: '10', lg: '20', xl: '40' }}
           py="4"
           fontSize="16px"
-          marginInline={".5rem"}
+          marginInline={'.5rem'}
         >
           <Box as="header" textAlign="center">
             <Heading as="h1" py="4" size="2xl">
