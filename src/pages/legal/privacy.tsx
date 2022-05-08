@@ -215,7 +215,6 @@ export default function Privacy() {
           <p>Im Mühlenwinkel 14</p>
           <p>45525 Hattingen</p>
           <p>Deutschland</p>
-          <p>Tel.: 015054090000</p>
           <p>E-Mail: hello@ben-siebert.de</p>
           <p>Website: ben-siebert.de</p>
           <Heading size="md">3. Cookies</Heading>

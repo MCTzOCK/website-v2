@@ -15,3 +15,14 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+.remark-code-title {
+  font-family: SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+  font-weight: 600;
+  display: flex;
+  width: 100%;
+  padding: 10px 8px;
+  margin: .5em 0 0;
+  border: 1px solid gray;
+}

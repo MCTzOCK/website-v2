@@ -29,6 +29,7 @@ import {useViewportScroll} from "framer-motion";
 import {IoIosArrowDown} from "react-icons/io";
 import {AiOutlineMenu} from "react-icons/ai";
 import {FaAddressCard, FaBook, FaList, FaTools, FaUserCircle} from "react-icons/fa";
+import NextLink from "next/link";
 
 export default function NavigationBar() {
     const {toggleColorMode: toggleMode} = useColorMode();
@@ -51,39 +52,40 @@ export default function NavigationBar() {
         const tcl = useColorModeValue("gray.900", "gray.50");
         const dcl = useColorModeValue("gray.500", "gray.50");
         return (
-            <Link
-                m={-3}
-                p={3}
-                display="flex"
-                alignItems="start"
-                rounded="lg"
-                href={props.href}
-                _hover={{bg: hbg}}
-            >
-                <Icon
-                    flexShrink={0}
-                    h={6}
-                    w={6}
-                    color={ic}
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
+            <NextLink href={props.href}>
+                <Link
+                    m={-3}
+                    p={3}
+                    display="flex"
+                    alignItems="start"
+                    rounded="lg"
+                    _hover={{bg: hbg}}
                 >
-                    {props.icon}
-                </Icon>
-                <Box ml={4}>
-                    <chakra.p fontSize="sm" fontWeight="700" color={tcl}>
-                        {props.title}
-                    </chakra.p>
-                    <chakra.p mt={1} fontSize="sm" color={dcl}>
-                        {props.children}
-                    </chakra.p>
-                </Box>
-            </Link>
+                    <Icon
+                        flexShrink={0}
+                        h={6}
+                        w={6}
+                        color={ic}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        aria-hidden="true"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                    >
+                        {props.icon}
+                    </Icon>
+                    <Box ml={4}>
+                        <chakra.p fontSize="sm" fontWeight="700" color={tcl}>
+                            {props.title}
+                        </chakra.p>
+                        <chakra.p mt={1} fontSize="sm" color={dcl}>
+                            {props.children}
+                        </chakra.p>
+                    </Box>
+                </Link>
+            </NextLink>
         );
     };
 
@@ -113,7 +115,7 @@ export default function NavigationBar() {
             />
             <Content>
                 <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/">Homepage</Section>
-                <Section title={"Blog"} icon={<FaBook/>} href="/blog" />
+                <Section title={"Blog"} icon={<FaBook/>} href="/blog"/>
                 <AboutSections/>
                 <WorkSections/>
                 <LegalSections/>
@@ -150,7 +152,7 @@ export default function NavigationBar() {
                 <Section title={"Decryptor"} icon={""} href={"/projects/decryptor"}>
                     Jugend Forscht 2020
                 </Section>
-                <Section title={"All Projects"} icon={<FaList />} href={"/projects/all"} />
+                <Section title={"All Projects"} icon={<FaList/>} href={"/projects/all"}/>
             </>
         )
     }
@@ -231,30 +233,32 @@ export default function NavigationBar() {
                     justifyContent="space-between"
                 >
                     <Flex align="flex-start">
-                        <Link href="/">
-                            <HStack>
-                                <Heading>Ben Siebert</Heading>
-                            </HStack>
-                        </Link>
+                        <NextLink href={"/"}>
+                            <Link>
+                                <HStack>
+                                    <Heading>Ben Siebert</Heading>
+                                </HStack>
+                            </Link>
+                        </NextLink>
                     </Flex>
                     <Flex>
                         <HStack spacing="5" display={{base: "none", md: "flex"}}>
                             <PopoverX title={"Me"}>
                                 <AboutSections/>
                             </PopoverX>
-                            <Button
-                                bg={bg}
-                                color="gray.500"
-                                display="inline-flex"
-                                alignItems="center"
-                                fontSize="md"
-                                _hover={{color: cl}}
-                                _focus={{boxShadow: "none"}}
-                                as={"a"}
-                                href={"/blog"}
-                            >
-                                Blog
-                            </Button>
+                            <NextLink href={"/blog"}>
+                                <Button
+                                    bg={bg}
+                                    color="gray.500"
+                                    display="inline-flex"
+                                    alignItems="center"
+                                    fontSize="md"
+                                    _hover={{color: cl}}
+                                    _focus={{boxShadow: "none"}}
+                                >
+                                    Blog
+                                </Button>
+                            </NextLink>
                             <PopoverX title={"Work"}>
                                 <WorkSections/>
                             </PopoverX>
