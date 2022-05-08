@@ -1,4 +1,15 @@
-import { Box, Flex, Heading, Input, SimpleGrid, Stack } from '@chakra-ui/react';
+import {
+  Alert,
+  AlertDescription,
+  AlertIcon,
+  AlertTitle,
+  Box,
+  Flex,
+  Heading,
+  Input,
+  SimpleGrid,
+  Stack,
+} from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
 import { useState } from 'react';
 import BlogCard from '../components/BlogCard';
@@ -9,9 +20,7 @@ const Blog = ({ posts }: { posts: any }) => {
 
   return (
     <>
-      <NextSeo
-        title="Blog | Ben Siebert"
-      />
+      <NextSeo title="Blog | Ben Siebert" description="Browse my Blogs. Read something about me and my personal thoughts about technology" />
       <Stack>
         <Box
           d="flex"
@@ -88,6 +97,17 @@ const Blog = ({ posts }: { posts: any }) => {
             }}
           />
         </Box>
+        {postsFiltered.length === 0 ? (
+          <>
+            <Alert status="error">
+              <AlertIcon />
+              <AlertTitle>No Blogs found!</AlertTitle>
+              <AlertDescription>
+                No Blog Posts were found matching your request.
+              </AlertDescription>
+            </Alert>
+          </>
+        ) : null}
         <SimpleGrid minChildWidth={'320px'} spacing={8}>
           {postsFiltered.map((post: any) => (
             <BlogCard
@@ -95,6 +115,7 @@ const Blog = ({ posts }: { posts: any }) => {
               title={post.title}
               subtitle={post.author}
               description={post.summary}
+              date={post.publishedAt}
               firstButton={{ href: '/blog/' + post.slug, text: 'Read more' }}
               tags={post.tags}
             />

@@ -16,6 +16,7 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
+import dayjs from 'dayjs';
 import React, { ReactElement } from 'react';
 
 export default function BlogCard(props: {
@@ -24,6 +25,7 @@ export default function BlogCard(props: {
   description: string | JSX.Element | ReactElement | ReactElement[] | null;
   firstButton: { text: string; href: string };
   tags: string[];
+  date: string;
 }) {
   return (
     <Center>
@@ -31,6 +33,7 @@ export default function BlogCard(props: {
         borderWidth="1px"
         borderRadius="lg"
         w={['100%']}
+        maxW="500px"
         height={{ sm: '476px', md: '20rem' }}
         direction={{ base: 'column', md: 'row' }}
         bg={useColorModeValue('gray.300', 'gray.900')}
@@ -52,7 +55,7 @@ export default function BlogCard(props: {
             {props.title}
           </Heading>
           <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
-            {props.subtitle}
+            {props.subtitle} / {dayjs(props.date).format('MMMM DD, YYYY')}
           </Text>
           <Text
             textAlign={'center'}
