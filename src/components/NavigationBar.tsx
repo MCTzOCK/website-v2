@@ -3,12 +3,12 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 
-import React from "react";
+import React, {useEffect} from "react";
 import {
     Box,
     Button,
     chakra,
-    CloseButton,
+    CloseButton, Divider,
     Flex,
     Heading,
     HStack,
@@ -89,6 +89,20 @@ export default function NavigationBar() {
         );
     };
 
+    function closeMobileNav() {
+        mobileNav.onClose();
+    }
+
+
+    useEffect(() => {
+        if(document.getElementById("mobile-nav") !== null) {
+            let body = document.body,
+                html = document.documentElement;
+            (document.getElementById("mobile-nav") as HTMLElement).style.height = Math.max( body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight ) + "px";
+        }
+    }, [])
+
     const MobileNavContent = (
         <VStack
             pos="absolute"
@@ -100,24 +114,30 @@ export default function NavigationBar() {
             zIndex={4}
             p={2}
             pb={4}
-            m={2}
             bg={bg}
             spacing={3}
             rounded="sm"
             shadow="sm"
             minH={"100vh"}
-            minW={"100%"}
+            minW={"100vw"}
+            id={"mobile-nav"}
+            onClick={() => {
+                closeMobileNav()
+            }}
         >
             <CloseButton
                 aria-label="Close menu"
                 justifySelf="self-start"
-                onClick={mobileNav.onClose}
+                onClick={closeMobileNav}
             />
             <Content>
-                <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/">Homepage</Section>
+                <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/"/>
                 <Section title={"Blog"} icon={<FaBook/>} href="/blog"/>
+                <Divider/>
                 <AboutSections/>
+                <Divider/>
                 <WorkSections/>
+                <Divider/>
                 <LegalSections/>
             </Content>
         </VStack>

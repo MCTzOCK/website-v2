@@ -78,8 +78,10 @@ const Blog = ({posts}: { posts: any }) => {
 
     useEffect(() => {
         const x = setInterval(() => {
-            const search = (document.getElementById('blog-search-field') as HTMLInputElement).value;
-            rerender(search);
+            if((document.getElementById('blog-search-field') as HTMLInputElement) !== null) {
+                const search = (document.getElementById('blog-search-field') as HTMLInputElement).value;
+                rerender(search);
+            }
         }, 100);
         return () => clearInterval(x);
     }, [])
