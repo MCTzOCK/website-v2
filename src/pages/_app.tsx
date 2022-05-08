@@ -41,11 +41,12 @@ function App({ Component, pageProps }: AppProps) {
         }}
       />
       <Script
+        id="nscr2pt"
         strategy="lazyOnload"
         src={`https://www.googletagmanager.com/gtag/js?id=G-6BH4TB6SWV`}
       />
 
-      <Script strategy="lazyOnload">
+      <Script strategy="lazyOnload" id="nscr1pt">
         {`
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
