@@ -71,6 +71,7 @@ export default function BlogCard(props: {
             {props.tags.map((tag) => {
               return (
                 <Badge
+                  key={tag}
                   style={{ cursor: 'pointer' }}
                   onClick={() => {
                     (
