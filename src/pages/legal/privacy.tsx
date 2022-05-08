@@ -739,7 +739,7 @@ export default function Privacy() {
           </p>
           <p>
             Der für die Verarbeitung Verantwortliche verwendet für die
-            Web-Analyse über Google Analytics den Zusatz "_gat._anonymizeIp".
+            Web-Analyse über Google Analytics den Zusatz &quot;_gat._anonymizeIp&quot;.
             Mittels dieses Zusatzes wird die IP-Adresse des Internetanschlusses
             der betroffenen Person von Google gekürzt und anonymisiert, wenn der
             Zugriff auf unsere Internetseiten aus einem Mitgliedstaat der
