@@ -97,14 +97,12 @@ const BlogPost = ({
     <>
       <NextSeo
         title={frontMatter.title + ' | Ben Siebert - Blog'}
-        description={
-          frontMatter.summary
-        }
+        description={frontMatter.summary}
         openGraph={{
           type: 'website',
           locale: 'en_US',
           url: 'https://ben-siebert.de/blog/' + frontMatter.slug,
-          site_name: frontMatter.title  + ' | Ben Siebert - Blog',
+          site_name: frontMatter.title + ' | Ben Siebert - Blog',
           images: [
             {
               url: 'https://ben-siebert.de/assets/brand/cartoon.jpg',
