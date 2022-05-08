@@ -96,7 +96,7 @@ const BlogPost = ({
   return (
     <>
       <NextSeo
-        title='Ben Siebert - Blog'
+        title={frontMatter.slug + ' | Ben Siebert - Blog'}
         description={
           frontMatter.summary
         }
