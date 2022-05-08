@@ -147,9 +147,11 @@ const Blog = ({posts}: { posts: any }) => {
 
 export async function getStaticProps() {
     const data = await getAllFilesFrontMatter('blog');
-    const posts = data.sort(
+    let posts = data.sort(
         (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
     );
+
+    posts = posts.filter((post: any) => !post.secret);
 
     return {props: {posts}};
 }
