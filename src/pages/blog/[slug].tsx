@@ -1,5 +1,5 @@
-import { NextSeo } from "next-seo";
-import { useRouter } from "next/router";
+import { NextSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 import {
   Box,
   Flex,
@@ -8,19 +8,86 @@ import {
   Link as ChakraLink,
   useColorModeValue,
   Icon,
-} from "@chakra-ui/react";
-import { MDXProvider } from "@mdx-js/react";
-import { MdEdit } from "react-icons/md";
-import dayjs from "dayjs";
-import hydrate from "next-mdx-remote/hydrate";
-import { getFileBySlug, getFiles } from "../../lib/posts";
+} from '@chakra-ui/react';
+import { MDXProvider } from '@mdx-js/react';
+import { MdEdit } from 'react-icons/md';
+import dayjs from 'dayjs';
+import hydrate from 'next-mdx-remote/hydrate';
+import { getFileBySlug, getFiles } from '../../lib/posts';
+import Image from 'next/image';
+import CodeBlock from '../../components/md/CodeBlock';
+import {
+  CustomLink,
+  InlineCode,
+  ListItem,
+  OrderedList,
+  UnorderedList,
+} from '../../components/md/common';
 
-const BlogPost = ({ mdxSource, frontMatter }: {mdxSource: any, frontMatter: any}) => {
+const BlogPost = ({
+  mdxSource,
+  frontMatter,
+}: {
+  mdxSource: any;
+  frontMatter: any;
+}) => {
   const { push } = useRouter();
 
-  const color = useColorModeValue("gray.700", "gray.400");
+  const color = useColorModeValue('gray.700', 'gray.400');
 
-  const content = hydrate(mdxSource);
+  const content = hydrate(mdxSource, {
+    components: {
+      // @ts-ignore
+      h1: (props: any) => (
+        <Heading size="xl" {...props}>
+          {props.children}
+        </Heading>
+      ),
+      // @ts-ignore
+      h2: (props: any) => (
+        <Heading size="lg" {...props}>
+          {props.children}
+        </Heading>
+      ),
+      // @ts-ignore
+      h3: (props: any) => (
+        <Heading size="md" {...props}>
+          {props.children}
+        </Heading>
+      ),
+      // @ts-ignore
+      h4: (props: any) => (
+        <Heading size="sm" {...props}>
+          {props.children}
+        </Heading>
+      ),
+      // @ts-ignore
+      h5: (props: any) => (
+        <Heading size="sm" {...props}>
+          {props.children}
+        </Heading>
+      ),
+      // @ts-ignore
+      h6: (props: any) => (
+        <Heading size="sm" {...props}>
+          {props.children}
+        </Heading>
+      ),
+      
+      // @ts-ignore
+      a: CustomLink,
+      // @ts-ignore
+      ul: UnorderedList,
+      // @ts-ignore
+      ol: OrderedList,
+      // @ts-ignore
+      li: ListItem,
+      // @ts-ignore
+      inlineCode: InlineCode,
+      // @ts-ignore
+      code: CodeBlock
+    }
+  });
 
   const title = frontMatter.title;
   const description = frontMatter.summary;
@@ -28,13 +95,13 @@ const BlogPost = ({ mdxSource, frontMatter }: {mdxSource: any, frontMatter: any}
 
   return (
     <>
-
       <MDXProvider>
         <Box
           as="section"
-          px={{ md: "10", lg: "20", xl: "40" }}
+          px={{ md: '10', lg: '20', xl: '40' }}
           py="4"
           fontSize="16px"
+          marginInline={".5rem"}
         >
           <Box as="header" textAlign="center">
             <Heading as="h1" py="4" size="2xl">
@@ -43,17 +110,13 @@ const BlogPost = ({ mdxSource, frontMatter }: {mdxSource: any, frontMatter: any}
 
             <Flex direction="column">
               <Text fontSize="16px" color={color} py="1">
-                {frontMatter.author} /{" "}
-                {dayjs(frontMatter.publishedAt).format("MMMM DD, YYYY")} /{" "}
+                {frontMatter.author} /{' '}
+                {dayjs(frontMatter.publishedAt).format('MMMM DD, YYYY')} /{' '}
                 {frontMatter.readingTime.text}
               </Text>
             </Flex>
           </Box>
-
-          <Box as="article">
-            {content}
-
-          </Box>
+          <Box as="article">{content}</Box>
         </Box>
       </MDXProvider>
     </>
@@ -61,12 +124,12 @@ const BlogPost = ({ mdxSource, frontMatter }: {mdxSource: any, frontMatter: any}
 };
 
 export const getStaticPaths = async () => {
-  const posts = await getFiles("blog");
+  const posts = await getFiles('blog');
 
   return {
     paths: posts.map((post) => ({
       params: {
-        slug: post.replace(/\.mdx/, ""),
+        slug: post.replace(/\.mdx/, ''),
       },
     })),
 
@@ -74,8 +137,8 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: {params: any}) => {
-  const post = await getFileBySlug("blog", params.slug);
+export const getStaticProps = async ({ params }: { params: any }) => {
+  const post = await getFileBySlug('blog', params.slug);
 
   return { props: post };
 };
