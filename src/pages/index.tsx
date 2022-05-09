@@ -59,6 +59,8 @@ const Home = () => {
                                 colorScheme="telegram"
                                 size="lg"
                                 fontSize="20px"
+                                as={"a"}
+                                href={"/contact"}
                             >
                                 Get in touch
                             </Button>
@@ -68,6 +70,8 @@ const Home = () => {
                                 colorScheme="orange"
                                 size="lg"
                                 fontSize="20px"
+                                as={"a"}
+                                href={"/projects/all"}
                             >
                                 My Work
                             </Button>

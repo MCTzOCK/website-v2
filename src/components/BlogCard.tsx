@@ -109,6 +109,8 @@ export default function BlogCard(props: {
                                 mb={{base: 2, sm: 0}}
                                 size="lg"
                                 cursor="pointer"
+                                as={'a'}
+                                href={props.firstButton.href}
                             >
                                 {props.firstButton.text}
                                 <Icon boxSize={4} ml={1} viewBox="0 0 20 20" fill="currentColor">

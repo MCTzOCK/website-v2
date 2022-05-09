@@ -60,6 +60,7 @@ export default function NavigationBar() {
                     alignItems="start"
                     rounded="lg"
                     _hover={{bg: hbg}}
+                    href={props.href}
                 >
                     <Icon
                         flexShrink={0}
@@ -255,7 +256,7 @@ export default function NavigationBar() {
                 >
                     <Flex align="flex-start">
                         <NextLink href={"/"}>
-                            <Link>
+                            <Link href={"/"}>
                                 <HStack>
                                     <Heading>Ben Siebert</Heading>
                                 </HStack>
@@ -276,6 +277,8 @@ export default function NavigationBar() {
                                     fontSize="md"
                                     _hover={{color: cl}}
                                     _focus={{boxShadow: "none"}}
+                                    as={"a"}
+                                    href={"/blog"}
                                 >
                                     Blog
                                 </Button>
