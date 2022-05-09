@@ -23,10 +23,10 @@ export default function NotFound() {
                 minH={"100vh"}
                 w={"100%"}
             >
-                <Heading fontSize="lg"> 404 </Heading>
+                <Heading fontSize="9xl" fontFamily={"monospace"} fontWeight={900}> 404 </Heading>
                 <Heading fontWeight={1000}>That page doens&#39;t exist!</Heading>
                 <Link href={"/"}>
-                    <Button mt={"2.5rem"} colorScheme={"whatsapp"}> Home</Button>
+                    <Button mt={"2.5rem"} colorScheme={"whatsapp"} size={"lg"}> Home</Button>
                 </Link>
             </Box>
         </>
