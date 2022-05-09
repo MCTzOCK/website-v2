@@ -3,10 +3,11 @@ import {
     AlertDescription,
     AlertIcon,
     AlertTitle,
-    Box,
+    Box, Button,
     Flex,
     Heading,
-    Input,
+    IconButton,
+    Input, InputGroup, InputRightElement,
     SimpleGrid,
     Stack, Text,
 } from '@chakra-ui/react';
@@ -14,6 +15,7 @@ import {NextSeo} from 'next-seo';
 import BlogCard from '../components/BlogCard';
 import {getAllFilesFrontMatter} from '../lib/posts';
 import {useEffect, useState} from "react";
+import {FaTrash} from "react-icons/fa";
 
 const Blog = ({posts}: { posts: any }) => {
     const [postsFiltered, setPostsFiltered] = useState(posts);
@@ -78,7 +80,7 @@ const Blog = ({posts}: { posts: any }) => {
 
     useEffect(() => {
         const x = setInterval(() => {
-            if((document.getElementById('blog-search-field') as HTMLInputElement) !== null) {
+            if ((document.getElementById('blog-search-field') as HTMLInputElement) !== null) {
                 const search = (document.getElementById('blog-search-field') as HTMLInputElement).value;
                 rerender(search);
             }
@@ -104,17 +106,27 @@ const Blog = ({posts}: { posts: any }) => {
                     <Text mb={"1rem"} color={"gray.900"} textAlign={"center"}>
                         In my blog you can read about my personal thoughts about technology and my life.
                     </Text>
-                    <Input
-                        id="blog-search-field"
-                        placeholder="Search..."
-                        w={['80%']}
-                        bg="white"
-                        color={'black'}
-                        _placeholder={{color: 'black'}}
-                        onChange={(v) => {
-                            rerender(v.target.value.toLowerCase());
-                        }}
-                    />
+                    <InputGroup size='md'
+                                w={['80%']}>
+                        <Input
+                            id="blog-search-field"
+                            placeholder="Search..."
+                            bg="white"
+                            color={'black'}
+                            _placeholder={{color: 'black'}}
+                            onChange={(v) => {
+                                rerender(v.target.value.toLowerCase());
+                            }}
+                        />
+                        <InputRightElement width='4.5rem'>
+                            <IconButton aria-label='Delete Query' icon={<FaTrash/>} h='1.75rem' size='sm'
+                                        onClick={() => {
+                                            if ((document.getElementById('blog-search-field') as HTMLInputElement) !== null) {
+                                                (document.getElementById('blog-search-field') as HTMLInputElement).value = '';
+                                            }
+                                        }} colorScheme={"whatsapp"}/>
+                        </InputRightElement>
+                    </InputGroup>
                 </Box>
                 {postsFiltered.length === 0 ? (
                     <>
