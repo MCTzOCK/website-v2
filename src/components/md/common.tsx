@@ -18,15 +18,15 @@ export const CustomLink = (props: any) => {
 };
 
 export const UnorderedList = (props: any) => (
-  <chakra.ul style={{ paddingLeft: "1rem", paddingTop: "0.5rem" }} {...props} />
+  <chakra.ul style={{ paddingLeft: "1rem", paddingTop: "0.5rem", fontSize: "1.6rem" }} {...props} />
 );
 
 export const OrderedList = (props: any) => (
-  <chakra.ol style={{ paddingLeft: "1rem", paddingTop: "0.5rem" }} {...props} />
+  <chakra.ol style={{ paddingLeft: "1rem", paddingTop: "0.5rem", fontSize: "1.6rem" }} {...props} />
 );
 
 export const ListItem = (props: any) => (
-  <chakra.li style={{ paddingBottom: "0.25rem" }} {...props} />
+  <chakra.li style={{ paddingBottom: "0.25rem", fontSize: "1.6rem" }} {...props} />
 );
 
 export const InlineCode = (props: any) => <Code {...props} />;
