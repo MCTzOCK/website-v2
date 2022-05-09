@@ -20,6 +20,12 @@ function App({Component, pageProps}: AppProps) {
                 description={
                     'Ben Siebert is a software engineer and former student at the Gymnasium Holthausen in Hattingen, Germany. He is passionate about web development and is currently working on his own projects.'
                 }
+                additionalMetaTags={[
+                    {
+                        name: "keywords",
+                        content: "ben siebert, software, development, student, hattingen, germany, code, incode, senos, decryptor, github"
+                    }
+                ]}
                 openGraph={{
                     type: 'website',
                     locale: 'en_US',

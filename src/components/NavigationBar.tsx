@@ -243,6 +243,7 @@ export default function NavigationBar() {
             overflowY="hidden"
             borderBottomWidth={2}
             borderBottomColor={useColorModeValue("gray.200", "gray.900")}
+            zIndex={1024}
         >
             <chakra.div h="4.5rem" mx="auto" maxW="1200px">
                 <Flex
