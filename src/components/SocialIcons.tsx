@@ -20,6 +20,19 @@ export default function SocialIcons() {
                 aria-label="Discord"
                 icon={<FaDiscord fontSize="1.25rem"/>}
             />
+            <IconButton
+                as="a"
+                href="https://www.youtube.com/channel/UCYpiMr7urCu8V8Lv4-6ikyw"
+                aria-label="YouTube"
+                icon={<FaYoutube fontSize="1.25rem"/>}
+            />
+            <IconButton
+                as="a"
+                href="https://twitter.com/OfficialMCTzOCK"
+                aria-label="YouTube"
+                icon={<FaTwitter fontSize="1.25rem"/>}
+            />
+
         </ButtonGroup>
     )
 }

@@ -96,11 +96,11 @@ export default function NavigationBar() {
 
 
     useEffect(() => {
-        if(document.getElementById("mobile-nav") !== null) {
+        if (document.getElementById("mobile-nav") !== null) {
             let body = document.body,
                 html = document.documentElement;
-            (document.getElementById("mobile-nav") as HTMLElement).style.height = Math.max( body.scrollHeight, body.offsetHeight,
-                html.clientHeight, html.scrollHeight, html.offsetHeight ) + "px";
+            (document.getElementById("mobile-nav") as HTMLElement).style.height = Math.max(body.scrollHeight, body.offsetHeight,
+                html.clientHeight, html.scrollHeight, html.offsetHeight) + "px";
         }
     }, [])
 
@@ -133,11 +133,13 @@ export default function NavigationBar() {
             />
             <Content>
                 <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/"/>
-                <Section title={"Blog"} icon={<FaBook/>} href="/blog"/>
                 <Divider/>
                 <AboutSections/>
                 <Divider/>
                 <WorkSections/>
+                <Divider/>
+                <Section title={"Blog"} icon={<FaBook/>} href="/blog"/>
+                <Section title={"Contact"} icon={<FaBook/>} href="/contact"/>
                 <Divider/>
                 <LegalSections/>
             </Content>
@@ -268,6 +270,24 @@ export default function NavigationBar() {
                             <PopoverX title={"Me"}>
                                 <AboutSections/>
                             </PopoverX>
+                            <PopoverX title={"Work"}>
+                                <WorkSections/>
+                            </PopoverX>
+                            <NextLink href={"/contact"}>
+                                <Button
+                                    bg={bg}
+                                    color="gray.500"
+                                    display="inline-flex"
+                                    alignItems="center"
+                                    fontSize="md"
+                                    _hover={{color: cl}}
+                                    _focus={{boxShadow: "none"}}
+                                    as={"a"}
+                                    href={"/contact"}
+                                >
+                                    Contact
+                                </Button>
+                            </NextLink>
                             <NextLink href={"/blog"}>
                                 <Button
                                     bg={bg}
@@ -283,9 +303,6 @@ export default function NavigationBar() {
                                     Blog
                                 </Button>
                             </NextLink>
-                            <PopoverX title={"Work"}>
-                                <WorkSections/>
-                            </PopoverX>
                             <PopoverX title={"Legal"}>
                                 <LegalSections/>
                             </PopoverX>

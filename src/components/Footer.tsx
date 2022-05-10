@@ -14,7 +14,7 @@ import {
     Text,
 } from '@chakra-ui/react'
 import * as React from 'react'
-import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
+import {FaGithub, FaHeart, FaLinkedin, FaTwitter} from 'react-icons/fa'
 import NextLink from "next/link";
 import UkraineFlag from "./UkraineFlag";
 import SocialIcons from "./SocialIcons";
@@ -83,6 +83,11 @@ export default function Footer() {
                 <Text fontSize="sm" color="subtle">
                     &copy; {new Date().getFullYear()} Ben Siebert. All rights reserved.
                 </Text>
+                <Stack spacing={{ base: '6', md: '8' }} align="start">
+                    <Text color="muted" d={"flex"} as={"span"} gap={".3rem"} justifyContent={"center"} alignItems={"center"}>
+                        Made with ❤ with NextJS, ChakraUI, TypeScript and Vercel 🚀
+                    </Text>
+                </Stack>
                 <ButtonGroup variant="ghost">
                     <SocialIcons />
                 </ButtonGroup>
