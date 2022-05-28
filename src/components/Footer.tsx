@@ -84,7 +84,7 @@ export default function Footer() {
                     &copy; {new Date().getFullYear()} Ben Siebert. All rights reserved.
                 </Text>
                 <Stack spacing={{ base: '6', md: '8' }} align="start">
-                    <Text color="muted" d={"flex"} as={"span"} gap={".3rem"} justifyContent={"center"} alignItems={"center"}>
+                    <Text color="muted" d={"flex"} as={"span"} gap={".3rem"} justifyContent={"center"} alignItems={"center"} textAlign={"center"}>
                         Made with ❤ with NextJS, ChakraUI, TypeScript and Vercel 🚀
                     </Text>
                 </Stack>

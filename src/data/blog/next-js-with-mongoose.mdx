@@ -1,0 +1,145 @@
+---
+title: "Creating a Next.js app with Mongoose"
+publishedAt: "2022-5-28"
+modifiedAt: "2022-5-28"
+author: "Ben Siebert"
+summary: "How to create a NextJS app and implement Mongoose..."
+tags: ["nextjs", "mongoose", "database", "tutorial"]
+---
+
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+1. [Creating a blank Next.js app](#creating-a-blank-nextjs-app)
+1. [Installing Mongoose](#installing-mongoose)
+1. [Implementing Mongoose](#implementing-mongoose)
+1. [Example API Endpoint](#example-api-endpoint)
+
+<br/>
+
+After this tutorial, you should be able to use Mongoose in your Next.js application API endpoints.
+
+<br />
+
+## Prerequisites
+
+<br />
+
+You will need to have Node.js version 8.x or higher installed. If you haven't already installed Node.js, you can do so by following the instructions [here](https://nodejs.org/en/).
+Additionally, you will need to have a [MongoDB](https://www.mongodb.com/) database running either locally, on a remote server, or on a cloud service such as [MongoDB Atlas](https://www.mongodb.com/atlas/database).
+
+<br/>
+
+## Creating a blank Next.js app
+
+<br />
+
+First we need to create a blank Next.js app. I am using the [create-next-app](https://nextjs.org/docs/api-reference/create-next-app) command.
+If you are like me then you probably want to use TypeScript in this project which can be done by simply adding the ``--typescript`` or short ``-ts`` flag to the command.
+
+```bash
+    # using npx
+    npx create-next-app@latest nextjs-with-mongoose --typescript
+    # using yarn
+    yarn create next-app nextjs-with-mongoose --typescript
+```
+
+Next we want to ``cd`` into the new created directory using the command ``cd nextjs-with-mongoose``.
+
+<br />
+
+## Installing Mongoose
+
+<br />
+
+To connect to a MongoDB Database we first need to install the ``mongoose`` package.
+
+```bash
+    # using npm
+    npm install mongoose
+    # using yarn
+    yarn add mongoose
+```
+
+<br />
+
+## Implementing Mongoose
+
+<br />
+
+Let's start by creating a new folder called ``lib`` and then create a new file called ``mongoose.ts`` inside of it.
+If you aren't using TypeScript create a file called ``mongoose.js`` instead.
+Then we need to create another file in the root of our project called ``.env``. This is where we will store our MongoDB connection information.
+
+Let's enter our login information.
+
+```dotenv:.env
+MONGO_URI=mongodb://user:password@host:port/database?authMechanism=DEFAULT&ssl=false&authSource=admin
+
+# Example
+# MONGO_URI=mongodb://ben:1234@localhost:27017/blog?authMechanism=DEFAULT&ssl=false&authSource=admin
+```
+
+Next we will write our connection code
+
+
+```typescript:lib/mongoose.ts
+import mongoose from 'mongoose';
+
+const MONGO_URI = process.env.MONGO_URI;
+
+if(!MONGO_URI) {
+    throw new Error('Please define the MONGO_URI variable in your environment');
+}
+
+// @ts-ignore
+let cached = global.mongoose;
+
+if(!cached) {
+    // @ts-ignore
+    cached = global.mongoose = { conn: null, promise: null}
+}
+
+async function mongoConnect () {
+    if (cached.conn) {
+        return cached.conn
+    }
+
+    if (!cached.promise) {
+        cached.promise = mongoose.connect(MONGO_URI as string).then(mongoose => {
+            return mongoose
+        })
+    }
+    cached.conn = await cached.promise
+    return cached.conn
+}
+
+export default mongoConnect
+```
+
+<br />
+
+## Example API Endpoint
+
+
+```typescript:pages/api/mongoose-status.ts
+import type {NextApiRequest, NextApiResponse} from 'next'
+import mongoConnect from '../../lib/mongoose';
+
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse
+) {
+    mongoConneect().then(() => {
+        res.status(200).json({
+            status: 'ok'
+        })
+    }).catch(err => {
+        res.status(500).json({
+            status: 'error',
+            error: err
+        })
+    })
+}
+```

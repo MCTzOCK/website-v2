@@ -76,7 +76,7 @@ const BlogPost = ({
 
             // @ts-ignore
             p: (props: any) => (
-                <Text fontSize="1.6rem" {...props} />
+                <Text fontSize="1.3rem" {...props} />
             ),
 
             // @ts-ignore
@@ -132,7 +132,7 @@ const BlogPost = ({
                     marginInline={'.5rem'}
                 >
                     <Box as="header" textAlign="center">
-                        <Heading as="h1" py="4" size="2xl">
+                        <Heading as="h1" py="4" size="2xl" textAlign={"center"}>
                             {frontMatter.title}
                         </Heading>
 
