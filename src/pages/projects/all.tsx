@@ -18,6 +18,7 @@ import {
 import NextLink from "next/link";
 import {FaBook, FaStar} from "react-icons/fa";
 import {VscRepoForked} from "react-icons/vsc";
+import {NextSeo} from "next-seo";
 
 export default function All() {
 
@@ -37,6 +38,9 @@ export default function All() {
 
     return (
         <div>
+            <NextSeo
+                title="All Projects | Ben Siebert - Software Engineer & Student"
+            />
             <Flex direction={"column"} gap={"2rem"} mt={"2rem"}>
                 <Heading textAlign={"center"} size={"lg"}>Promoted</Heading>
                 <SimpleGrid gap={"2rem"} minChildWidth={"400px"}>
