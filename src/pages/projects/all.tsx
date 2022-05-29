@@ -63,6 +63,7 @@ export default function All() {
                 <SimpleGrid gap={"2rem"} minChildWidth={"400px"}>
                     {
                         projects.map((project: any) => {
+                            // eslint-disable-next-line react/jsx-key
                             return <RepoCard name={project.name} description={project.description}
                                              url={project.html_url}
                                              stars={project.stargazers_count}
