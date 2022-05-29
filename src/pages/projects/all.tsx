@@ -52,7 +52,7 @@ export default function All() {
                               description={"Make the PC yours again with SenOS"}
                               stars={0}
                               forks={0} license={"None"} url={"/projects/senos"}/>
-                    <RepoCard name={"InCode"}
+                    <RepoCard name={"Decryptor"}
                               description={"Encrypt and Decrypt any text with the Decryptor"}
                               stars={0}
                               forks={0} license={"MIT"} url={"/projects/decryptor"}/>
