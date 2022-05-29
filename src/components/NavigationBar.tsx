@@ -28,7 +28,7 @@ import {useViewportScroll} from "framer-motion";
 
 import {IoIosArrowDown} from "react-icons/io";
 import {AiOutlineMenu} from "react-icons/ai";
-import {FaAddressCard, FaBook, FaList, FaTools, FaUserCircle} from "react-icons/fa";
+import {FaAddressCard, FaBook, FaHandPaper, FaList, FaTools, FaUserCircle} from "react-icons/fa";
 import NextLink from "next/link";
 
 export default function NavigationBar() {
@@ -135,6 +135,7 @@ export default function NavigationBar() {
                 <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/"/>
                 <Divider/>
                 <AboutSections/>
+                <Section title="News" icon={<FaHandPaper/>} href="/news"/>
                 <Divider/>
                 <WorkSections/>
                 <Divider/>
@@ -270,6 +271,21 @@ export default function NavigationBar() {
                             <PopoverX title={"Me"}>
                                 <AboutSections/>
                             </PopoverX>
+                            <NextLink href={"/news"}>
+                                <Button
+                                    bg={bg}
+                                    color="gray.500"
+                                    display="inline-flex"
+                                    alignItems="center"
+                                    fontSize="md"
+                                    _hover={{color: cl}}
+                                    _focus={{boxShadow: "none"}}
+                                    as={"a"}
+                                    href={"/news"}
+                                >
+                                    News
+                                </Button>
+                            </NextLink>
                             <PopoverX title={"Work"}>
                                 <WorkSections/>
                             </PopoverX>
