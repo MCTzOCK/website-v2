@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://ben-siebert.de</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/about</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/contact</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/legal/imprint</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/legal/privacy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/projects/all</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/projects/decryptor</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/projects/incode</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/projects/senos</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/skills</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/blog/hello</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
-<url><loc>https://ben-siebert.de/blog/incode-jugend-forscht-2022</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-08T14:47:08.299Z</lastmod></url>
+<url><loc>https://ben-siebert.de</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/about</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/blog</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/contact</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/legal/imprint</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/legal/privacy</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/projects/all</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/projects/decryptor</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/projects/incode</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/projects/senos</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/skills</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/blog/domain-parked</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/blog/hello</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/blog/incode-jugend-forscht-2022</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
+<url><loc>https://ben-siebert.de/blog/next-js-with-mongoose</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2022-05-29T20:27:02.964Z</lastmod></url>
 </urlset>
