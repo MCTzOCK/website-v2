@@ -68,7 +68,7 @@ export default function All() {
                                              url={project.html_url}
                                              stars={project.stargazers_count}
                                              forks={project.forks}
-                                             license={project.license}/>
+                                             license={project.license !== null ? project.license : "No License"}/>
                         })
                     }
                 </SimpleGrid>
