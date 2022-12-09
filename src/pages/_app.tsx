@@ -1,9 +1,9 @@
 import '../styles/globals.css';
-import type {AppProps} from 'next/app';
-import {Box, ChakraProvider, extendTheme} from '@chakra-ui/react';
+import type { AppProps } from 'next/app';
+import { Box, ChakraProvider, extendTheme } from '@chakra-ui/react';
 import Footer from '../components/Footer';
 import NavigationBar from '../components/NavigationBar';
-import {DefaultSeo} from 'next-seo';
+import { DefaultSeo } from 'next-seo';
 import Script from 'next/script';
 
 const theme = extendTheme({
@@ -13,7 +13,7 @@ const theme = extendTheme({
     }
 });
 
-function App({Component, pageProps}: AppProps) {
+function App({ Component, pageProps }: AppProps) {
     return (
         <>
             <DefaultSeo
@@ -52,6 +52,8 @@ function App({Component, pageProps}: AppProps) {
                 src={`https://www.googletagmanager.com/gtag/js?id=G-6BH4TB6SWV`}
             />
 
+            <Script defer data-domain="ben-siebert.com" src="http://analytics.node1.ben-siebert.com/js/plausible.js" />
+
             <Script strategy="lazyOnload" id="nscr1pt">
                 {`
         window.dataLayer = window.dataLayer || [];
@@ -63,14 +65,14 @@ function App({Component, pageProps}: AppProps) {
     `}
             </Script>
             <Script async
-                    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5817536582777604"
-                    crossOrigin="anonymous" id={"nscr3pt"} />
+                src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5817536582777604"
+                crossOrigin="anonymous" id={"nscr3pt"} />
             <ChakraProvider theme={theme}>
-                <NavigationBar/>
+                <NavigationBar />
                 <Box minH="100vh" minW="100%">
                     <Component {...pageProps} />
                 </Box>
-                <Footer/>
+                <Footer />
             </ChakraProvider>
         </>
     );

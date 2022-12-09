@@ -20,7 +20,7 @@ export default function InCode() {
             description={"The Decryptor makes it possible to encrypt and decrypt any text with a simple but secure encryption algorithm invented by me."}
             button={{
                 text: "Open GitHub",
-                url: "https://github.com/coolescoden/SenOS"
+                url: "https://github.com/coolescoden/Decryptor"
             }}
             button2={{
                 text: "Download",
