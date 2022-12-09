@@ -51,9 +51,6 @@ export default function All() {
             <NextSeo
                 title="All Projects | Ben Siebert - Software Engineer & Student"
             />
-
-
-
             <Flex direction={"column"} gap={"2rem"} mt={"2rem"}
                   w={"100%"} alignItems={"center"} justifyContent={"center"}>
                 <Heading textAlign={"center"} size={"lg"}>Promoted</Heading>
@@ -181,6 +178,7 @@ function RepoCard(props: {
                 >
                     {
                         props.image && (
+                            // eslint-disable-next-line @next/next/no-img-element
                             <img src={props.image} alt={"Logo"} width={"100px"}
                                  height={"100px"}/>
                         )
@@ -205,7 +203,7 @@ function RepoCard(props: {
                                         <FaStar size={'1.5rem'}/>
                                         <Text
                                             textAlign={'center'}
-                                            color={useColorModeValue('gray.700', 'gray.400')}
+                                            color={'gray.400'}
                                             px={3}
                                         >
                                             {props.stars}
@@ -220,7 +218,7 @@ function RepoCard(props: {
                                         <VscRepoForked size={'1.5rem'}/>
                                         <Text
                                             textAlign={'center'}
-                                            color={useColorModeValue('gray.700', 'gray.400')}
+                                            color={'gray.400'}
                                             px={3}
                                         >
                                             {props.forks}
@@ -237,7 +235,7 @@ function RepoCard(props: {
                                             <FaBook size={'1.5rem'}/>
                                             <Text
                                                 textAlign={'center'}
-                                                color={useColorModeValue('gray.700', 'gray.400')}
+                                                color={'gray.400'}
                                                 px={3}
                                             >
                                                 {props.license ? (

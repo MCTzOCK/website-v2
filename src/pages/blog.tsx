@@ -86,6 +86,7 @@ const Blog = ({posts}: { posts: any }) => {
             }
         }, 100);
         return () => clearInterval(x);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
