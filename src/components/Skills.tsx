@@ -25,6 +25,7 @@ import {
     FaReact,
     FaSass
 } from "react-icons/fa";
+import {GiBookshelf} from "react-icons/gi";
 export default function Fgl() {
     const Skill = (props: any) => {
         return (
@@ -33,14 +34,15 @@ export default function Fgl() {
                     alignItems="center"
                     justifyContent="center"
                     w={8}
-                    h={8}
                     mb={4}
                     rounded="full"
                     color={useColorModeValue(`${props.color}.600`, `${props.color}.100`)}
-                    bg={useColorModeValue(`${props.color}.100`, `${props.color}.600`)}
+                    //bg={useColorModeValue(`${props.color}.100`, `${props.color}.600`)}
+                    fontSize={"xl"}
+                    h={"fit-content"}
                 >
                     <Icon
-                        boxSize={5}
+                        boxSize={50}
                         viewBox="0 0 20 20"
                         fill="currentColor"
                         aria-hidden="true"
@@ -272,6 +274,27 @@ export default function Fgl() {
                             </>
                         }>
                         Docker is a tool I use to deploy my applications.
+                    </Skill>
+                    <Skill
+                        color={"cyan"}
+                        title={"Next.js"}
+                        icon={
+                            <>
+                                <FaReact />
+                            </>
+                        }
+                        >
+                        Next.js is a framework I use to create server side rendered applications.
+                    </Skill>
+                    <Skill
+                        color={"red"}
+                        title={"Turborepo"}
+                        icon={
+                            <>
+                                <GiBookshelf />
+                            </>
+                        }>
+                        Turborepo is a tool I use to manage my monorepo.
                     </Skill>
                 </SimpleGrid>
             </Box>
