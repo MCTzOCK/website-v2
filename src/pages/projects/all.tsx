@@ -4,65 +4,121 @@
  */
 import React, {useEffect, useState} from "react";
 import {
-    Button,
-    Center,
+    CircularProgress,
     Flex,
+    Grid,
     Heading,
-    Icon,
+    Input,
     SimpleGrid,
     Stack,
     Text,
-    Tooltip,
     useColorModeValue
 } from "@chakra-ui/react";
-import NextLink from "next/link";
 import {FaBook, FaStar} from "react-icons/fa";
 import {VscRepoForked} from "react-icons/vsc";
 import {NextSeo} from "next-seo";
+import {useRouter} from "next/router";
 
 export default function All() {
 
     const [projects, setProjects] = useState([]);
+    const [filteredProjects, setFilteredProjects] = useState([]);
+
+    const [search, setSearch] = useState("");
 
     useEffect(() => {
         fetch("https://api.github.com/users/MCTzOCK/repos?per_page=100")
             .then(res => res.json())
             .then(data => {
-                data.sort((a: any, b: any) => {
+                let p = data.sort((a: any, b: any) => {
                     return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
                 });
-                setProjects(data);
+
+                p = p.filter((x: any) => !x.fork);
+
+                setProjects(p);
+                setFilteredProjects(p);
             });
     }, [])
 
+
+    useEffect(() => {
+        setFilteredProjects(projects.filter((x: any) => x.name.toLowerCase().includes(search.toLowerCase()) ));
+    }, [search])
 
     return (
         <div>
             <NextSeo
                 title="All Projects | Ben Siebert - Software Engineer & Student"
             />
-            <Flex direction={"column"} gap={"2rem"} mt={"2rem"}>
+
+
+
+            <Flex direction={"column"} gap={"2rem"} mt={"2rem"}
+                  w={"100%"} alignItems={"center"} justifyContent={"center"}>
                 <Heading textAlign={"center"} size={"lg"}>Promoted</Heading>
-                <SimpleGrid gap={"2rem"} minChildWidth={"400px"}>
+                <Grid
+                    p={"2rem"}
+                    templateColumns={["repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(4, 1fr)"]}
+                    gap={6}
+                >
+                    <RepoCard name={"CodeUp"}
+                              description={"Learn how to code and create your own projects!"}
+                              stars={-1}
+                              image={"https://codeup.space/codeup.png"}
+                              forks={-1} license={"__disable_license_field"} url={"https://codeup.space"}/>
                     <RepoCard name={"InCode"}
                               description={"Create awesome Web Applications in your native language with InCode"}
-                              stars={0}
-                              forks={0} license={"GPL-3.0"} url={"/projects/incode"}/>
+                              stars={-1}
+                              image={"https://avatars.githubusercontent.com/u/83610050?s=200&v=4"}
+                              forks={-1} license={"__disable_license_field"} url={"/projects/incode"}/>
                     <RepoCard name={"SenOS"}
                               description={"Make the PC yours again with SenOS"}
-                              stars={0}
-                              forks={0} license={"GPL-3.0"} url={"/projects/senos"}/>
+                              stars={-1}
+                              image={"https://avatars.githubusercontent.com/u/69637254?s=200&v=4"}
+                              forks={-1} license={"__disable_license_field"} url={"/projects/senos"}/>
                     <RepoCard name={"Decryptor"}
                               description={"Encrypt and Decrypt any text with the Decryptor"}
-                              stars={0}
-                              forks={0} license={"MIT"} url={"/projects/decryptor"}/>
-                </SimpleGrid>
+                              stars={-1}
+                              image={"/assets/project/decryptor.jpg"}
+                              forks={-1} license={"__disable_license_field"} url={"/projects/decryptor"}/>
+                </Grid>
             </Flex>
+
+            {
+                projects.length === 0 ? (
+                    <>
+                        <Flex w={"100%"} h={"100vh"} justifyContent={"center"} mt={"2rem"}>
+                            <CircularProgress isIndeterminate color={"whatsapp.500"} size={"60px"} ml={"1rem"}/>
+                        </Flex>
+                    </>
+                ) : (
+                    <>
+                        <Flex w={"100%"} justifyContent={"center"}>
+                            <Input w={["75%", "50%"]} placeholder={"Search..."} onChange={(e: any) => setSearch(e.target.value)}/>
+                        </Flex>
+                    </>
+                )
+            }
+
+            {
+                filteredProjects.length === 0 ? (
+                    <>
+                        <Flex w={"100%"} h={"100vh"} justifyContent={"center"} mt={"2rem"}>
+                            <Text>No Projects found</Text>
+                        </Flex>
+                    </>
+                ) : null
+            }
+
+
             <Flex direction={"column"} gap={"2rem"} mt={"2rem"}>
                 <Heading textAlign={"center"} size={"lg"}>All Projects</Heading>
-                <SimpleGrid gap={"2rem"} minChildWidth={"400px"}>
+                <Grid gap={"2rem"} p={"2rem"}
+                      templateColumns={["repeat(1, 1fr)", "repeat(1, 1fr)", "repeat(2, 1fr)", "repeat(2, 1fr)", "repeat(3, 1fr)", "repeat(5, 1fr)"]}
+                >
                     {
-                        projects.map((project: any) => {
+                        filteredProjects.map((project: any) => {
                             // eslint-disable-next-line react/jsx-key
                             return <RepoCard name={project.name} description={project.description}
                                              url={project.html_url}
@@ -71,7 +127,7 @@ export default function All() {
                                              license={project.license}/>
                         })
                     }
-                </SimpleGrid>
+                </Grid>
             </Flex>
         </div>
     )
@@ -83,10 +139,12 @@ function RepoCard(props: {
     stars: number,
     forks: number,
     license: string,
-    url: string
+    url: string,
+    image?: string;
 }) {
+    const router = useRouter();
     return (
-        <Center>
+        <>
             <Stack
                 borderWidth="1px"
                 borderRadius="lg"
@@ -95,11 +153,23 @@ function RepoCard(props: {
                 height={{sm: '476px', md: '20rem'}}
                 direction={{base: 'column', md: 'row'}}
                 bg={useColorModeValue('gray.300', 'gray.900')}
-                boxShadow={'2xl'}
-                marginInline={'2rem'}
                 mt={'2rem'}
                 mb={'2rem'}
                 padding={4}
+                onClick={() => {
+                    if(props.url.startsWith("/")){
+                        router.push(props.url);
+                    } else {
+
+                        window.open(props.url, '_blank')
+                    }
+                }}
+                cursor={"pointer"}
+                _hover={{
+                    transform: "scale(1.02)",
+                    transition: "all 0.2s ease-in-out",
+                    boxShadow: "2xl"
+                }}
             >
                 <Stack
                     flex={1}
@@ -109,6 +179,13 @@ function RepoCard(props: {
                     p={1}
                     pt={2}
                 >
+                    {
+                        props.image && (
+                            <img src={props.image} alt={"Logo"} width={"100px"}
+                                 height={"100px"}/>
+                        )
+                    }
+
                     <Heading fontSize={'2xl'} fontFamily={'body'}>
                         {props.name}
                     </Heading>
@@ -122,77 +199,60 @@ function RepoCard(props: {
                     <Stack>
                         <Flex direction={"row"} gap={".4rem"} alignItems={"center"} justifyContent={"center"}>
 
-                            <Flex direction={"row"} gap={".2rem"} alignItems={"center"} justifyContent={"center"}>
-                                <FaStar size={'1.5rem'}/>
-                                <Text
-                                    textAlign={'center'}
-                                    color={useColorModeValue('gray.700', 'gray.400')}
-                                    px={3}
-                                >
-                                    {props.stars}
-                                </Text>
-                            </Flex>
-                            <Flex direction={"row"} gap={".2rem"} alignItems={"center"} justifyContent={"center"}>
-                                <VscRepoForked size={'1.5rem'}/>
-                                <Text
-                                    textAlign={'center'}
-                                    color={useColorModeValue('gray.700', 'gray.400')}
-                                    px={3}
-                                >
-                                    {props.forks}
-                                </Text>
-                            </Flex>
-                            <Flex direction={"row"} gap={".2rem"} alignItems={"center"} justifyContent={"center"}>
-                                <Tooltip label={props.license}>
-                                    <Flex direction={"row"} gap={".2rem"} alignItems={"center"}
-                                          justifyContent={"center"}>
-                                        <FaBook size={'1.5rem'}/>
+                            {
+                                props.stars !== -1 && (
+                                    <Flex direction={"row"} gap={".2rem"} alignItems={"center"} justifyContent={"center"}>
+                                        <FaStar size={'1.5rem'}/>
                                         <Text
                                             textAlign={'center'}
                                             color={useColorModeValue('gray.700', 'gray.400')}
                                             px={3}
                                         >
-                                            License
+                                            {props.stars}
                                         </Text>
                                     </Flex>
-                                </Tooltip>
-                            </Flex>
-                        </Flex>
-                    </Stack>
+                                )
+                            }
 
-                    <Stack
-                        width={'100%'}
-                        direction={'row'}
-                        padding={2}
-                        justifyContent={'center'}
-                        alignItems={'center'}
-                    >
-                        <NextLink href={props.url}>
-                            <Button
-                                colorScheme="telegram"
-                                display="inline-flex"
-                                alignItems="center"
-                                justifyContent="center"
-                                w={{base: 'full', sm: 'auto'}}
-                                mb={{base: 2, sm: 0}}
-                                size="lg"
-                                cursor="pointer"
-                                as={'a'}
-                                href={props.url}
-                            >
-                                View
-                                <Icon boxSize={4} ml={1} viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        fillRule="evenodd"
-                                        d="M6.672 1.911a1 1 0 10-1.932.518l.259.966a1 1 0 001.932-.518l-.26-.966zM2.429 4.74a1 1 0 10-.517 1.932l.966.259a1 1 0 00.517-1.932l-.966-.26zm8.814-.569a1 1 0 00-1.415-1.414l-.707.707a1 1 0 101.415 1.415l.707-.708zm-7.071 7.072l.707-.707A1 1 0 003.465 9.12l-.708.707a1 1 0 001.415 1.415zm3.2-5.171a1 1 0 00-1.3 1.3l4 10a1 1 0 001.823.075l1.38-2.759 3.018 3.02a1 1 0 001.414-1.415l-3.019-3.02 2.76-1.379a1 1 0 00-.076-1.822l-10-4z"
-                                        clipRule="evenodd"
-                                    />
-                                </Icon>
-                            </Button>
-                        </NextLink>
+                            {
+                                props.forks !== -1 && (
+                                    <Flex direction={"row"} gap={".2rem"} alignItems={"center"} justifyContent={"center"}>
+                                        <VscRepoForked size={'1.5rem'}/>
+                                        <Text
+                                            textAlign={'center'}
+                                            color={useColorModeValue('gray.700', 'gray.400')}
+                                            px={3}
+                                        >
+                                            {props.forks}
+                                        </Text>
+                                    </Flex>
+                                )
+                            }
+
+                            {
+                                props.license !== "__disable_license_field" && (
+                                    <Flex direction={"row"} gap={".2rem"} alignItems={"center"} justifyContent={"center"}>
+                                        <Flex direction={"row"} gap={".2rem"} alignItems={"center"}
+                                              justifyContent={"center"}>
+                                            <FaBook size={'1.5rem'}/>
+                                            <Text
+                                                textAlign={'center'}
+                                                color={useColorModeValue('gray.700', 'gray.400')}
+                                                px={3}
+                                            >
+                                                {props.license ? (
+                                                    // @ts-ignore
+                                                    props.license.spdx_id ? props.license.spdx_id : props.license
+                                                ) : "No License"}
+                                            </Text>
+                                        </Flex>
+                                    </Flex>
+                                )
+                            }
+                        </Flex>
                     </Stack>
                 </Stack>
             </Stack>
-        </Center>
+        </>
     )
 }
