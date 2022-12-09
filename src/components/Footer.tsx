@@ -32,7 +32,7 @@ export default function Footer() {
                 <Stack spacing={{ base: '6', md: '8' }} align="start">
                     <Heading>Ben Siebert</Heading>
                     <Text color="muted">
-                        <Text as="span" align={'left'}><Text d={"flex"} gap={".3rem"} as={"span"}><UkraineFlag width={18} /> #PrayForUkraine</Text></Text>
+                        Professional Software development.
                     </Text>
                 </Stack>
                 <Stack
@@ -85,7 +85,7 @@ export default function Footer() {
                 </Text>
                 <Stack spacing={{ base: '6', md: '8' }} align="start">
                     <Text color="muted" d={"flex"} as={"span"} gap={".3rem"} justifyContent={"center"} alignItems={"center"} textAlign={"center"}>
-                        Made with ❤ with NextJS, ChakraUI, TypeScript and Vercel 🚀
+                        Made with ❤ with NextJS, ChakraUI and TypeScript
                     </Text>
                 </Stack>
                 <ButtonGroup variant="ghost">
