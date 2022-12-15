@@ -135,7 +135,6 @@ export default function NavigationBar() {
                 <Section title="Ben Siebert" icon={<FaUserCircle/>} href="/"/>
                 <Divider/>
                 <AboutSections/>
-                <Section title="News" icon={<FaNewspaper/>} href="https://twitter.com/OfficialMCTzOCK"/>
                 <Divider/>
                 <WorkSections/>
                 <Divider/>
@@ -271,21 +270,6 @@ export default function NavigationBar() {
                             <PopoverX title={"Me"}>
                                 <AboutSections/>
                             </PopoverX>
-                            <NextLink href={"https://twitter.com/OfficialMCTzOCK"}>
-                                <Button
-                                    bg={bg}
-                                    color="gray.500"
-                                    display="inline-flex"
-                                    alignItems="center"
-                                    fontSize="md"
-                                    _hover={{color: cl}}
-                                    _focus={{boxShadow: "none"}}
-                                    as={"a"}
-                                    href={"https://twitter.com/OfficialMCTzOCK"}
-                                >
-                                    News
-                                </Button>
-                            </NextLink>
                             <PopoverX title={"Work"}>
                                 <WorkSections/>
                             </PopoverX>

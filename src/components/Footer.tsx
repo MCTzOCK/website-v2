@@ -3,18 +3,19 @@
  * @copyright (c) 2018-2021 Ben Siebert. All rights reserved.
  */
 import {
+    Avatar,
     Box,
     Button,
     ButtonGroup,
     Container,
-    Divider, Heading,
+    Divider, Heading, HStack,
     IconButton,
     Input,
     Stack,
     Text,
 } from '@chakra-ui/react'
 import * as React from 'react'
-import {FaGithub, FaHeart, FaLinkedin, FaTwitter} from 'react-icons/fa'
+import {FaCode, FaGithub, FaHeart, FaLinkedin, FaTwitter} from 'react-icons/fa'
 import NextLink from "next/link";
 import UkraineFlag from "./UkraineFlag";
 import SocialIcons from "./SocialIcons";
@@ -30,10 +31,16 @@ export default function Footer() {
                 w={"full"}
             >
                 <Stack spacing={{ base: '6', md: '8' }} align="start">
-                    <Heading>Ben Siebert</Heading>
-                    <Text color="muted">
-                        Professional Software development.
-                    </Text>
+                    <HStack spacing={8}>
+                        <Avatar size={"md"} name={"Ben Siebert"} src={"/assets/brand/berlin.png"}/>
+                        <Heading>Ben Siebert</Heading>
+                    </HStack>
+                    <HStack>
+                        <FaCode />
+                        <Text>
+                            Professional Software development.
+                        </Text>
+                    </HStack>
                 </Stack>
                 <Stack
                     direction={{ base: 'column-reverse', md: 'column', lg: 'row' }}

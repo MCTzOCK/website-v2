@@ -24,7 +24,7 @@ const Home = () => {
                 paddingInline={".6rem"}
             >
                 <NextImage
-                    src="/assets/brand/cartoon.jpg"
+                    src="/assets/brand/berlin.png"
                     width={"350"}
                     height={"350"}
                     alt="ben siebert avatar"
@@ -41,16 +41,14 @@ const Home = () => {
             </span>
                     </Heading>
                     <Heading fontSize={["3xl", "4xl"]} fontWeight="700">
-                        A <Text color={color} as={"span"}>fullstack</Text> developer, <Text color={color}
-                                                                                            as={"span"}>student</Text> and <Text
-                        color={color} as={"span"}>gamer</Text>
+                        A <Text color={color} as={"span"}>fullstack</Text> developer and <Text color={color}
+                                                                                            as={"span"}>student</Text>
                     </Heading>
                     <Text py="4">
                         A&nbsp;
                         <Text as="span" fontWeight="600">
                             fullstack web developer
-                        </Text>&nbsp;
-                        based in Germany, I specialize in UI/UX design, Responsive web
+                        </Text>&nbsp;based in Germany, I specialize in UI/UX design, Responsive web
                         design, and REST APIs.
                     </Text>
                     <ButtonGroup>
