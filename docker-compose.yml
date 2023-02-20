@@ -2,4 +2,6 @@ version: "3"
 
 services:
   frontend:
-    build: .
+    build:
+      context: frontend
+      dockerfile: ./Dockerfile
