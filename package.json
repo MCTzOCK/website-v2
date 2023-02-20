@@ -1,6 +1,6 @@
 {
-  "name": "website-v3",
-  "version": "0.1.0",
+  "name": "ben-siebert-de",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
