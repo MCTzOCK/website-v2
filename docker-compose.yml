@@ -2,5 +2,4 @@ version: "3"
 
 services:
   frontend:
-    image: mctzock/website-v2
     build: .
