@@ -143,6 +143,7 @@ const Blog = ({posts}: { posts: any }) => {
                 <SimpleGrid minChildWidth={'320px'} spacing={8}>
                     {postsFiltered.map((post: any) => (
                         <BlogCard
+                            key={post.title}
                             title={post.title}
                             subtitle={post.author}
                             description={post.summary}
