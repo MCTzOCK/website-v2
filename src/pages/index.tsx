@@ -24,7 +24,7 @@ const Home = () => {
                 paddingInline={".6rem"}
             >
                 <NextImage
-                    src="/assets/brand/berlin.png"
+                    src="https://avatars.githubusercontent.com/u/53553315"
                     width={"350"}
                     height={"350"}
                     alt="ben siebert avatar"
