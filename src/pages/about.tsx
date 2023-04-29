@@ -48,7 +48,7 @@ export default function About() {
                         <Box textAlign={"center"} d={"flex"} flexDir={"column"} width={"fit-content"}
                              marginInline={"4rem"}
                              marginBottom={"3rem"}>
-                            <NextImage src={"/assets/brand/cartoon.jpg"} width={350} height={350}
+                            <NextImage src={"https://avatars.githubusercontent.com/u/53553315"} width={350} height={350}
                                        style={{borderRadius: "50%"}}/>
                             <Heading mt={"1.6rem"}>
                                 Ben Siebert
